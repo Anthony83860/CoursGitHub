@@ -1,4 +1,4 @@
-Les commandes de base deGithub
+Les commandes de base de Github
 
 Première étape : initialiser un repo
 
@@ -139,3 +139,86 @@ Relatif à l'issue #123
 En savoir plus sur le langage markdown
 
 Pour la rédaction de vos fichiers Readme, n'hésitez pas à vous pencher sur la documentation markdown. Voici un lien pour vous aider : Lien pour apprendre le markdown
+
+Eviter d'envoyer des fichiers/dossiers sur Github
+
+Vous avez la possibilité de dire a github qu'il y a certains fichiers et dossiers que vous ne souhaitez pas partager sur votre repository.
+
+Pour cela vous allez devoir :
+
+Créer un fichier .gitignore à la racine de votre dossier
+Dans le fichier .gitignore, vous devez ajouter ligne par ligne les fichiers/dossiers que vous ne souhaitez pas ajouter à votre repository
+Exemple
+
+Fichier .gitignore :
+
+.code.js
+./css
+Exercice
+
+Dans un de vos repository, ajoutez un nouveau fichier (.js, .html, .autre, on s'en fiche)
+Une fois le fichier ajouté, publier la modification sur github (votre repo doit avoir le fichier)
+Débrouillez-vous ensuite pour supprimer le fichier que vous venez d'ajouter et récupercuter la suppression sur votre repo github
+Récupérer votre travail
+
+Pour récupérer votre travail sur une autre machine, ou simplement récupérer la dernière version en date, vous devez utiliser la commande git clone URL_DU_REPO_A_CLONER
+
+Par exemple : git clone https://github.com/JackAdamsJenkins/coursgithub.git
+
+Pull Request
+
+C'est une fonctionnalité clé des systèmes de gestion de version basées sur git comme Github, Gitlab, BitBucket... Elle représente une demande de fusion des modifications (commits) d'une branche vers une autre, généralement de la branche d'une fonctionnalité vers la branche principale d'un projet.
+
+Concept de la Pull Request (PR)
+
+Collaboration et revue de code : La PR n'est pas seulement un mécanisme de fusion de code. C'est aussi un outil de collaboration. Lorsqu'un développeur soumet un PR, d'autres membres de l'équipe peuvent la consulter, laisser des commentaires, suggérer des modifications et même proposer des commits pour améliorer la PR avant qu'elle ne soit fusionnée.
+
+Point de contrôle : Avant la fusion, la PR fournit un point de contrôle pour s'assurer que le code respecte les qualités, passe tous les tests et n'introduit pas de régressions.
+
+Intégration avec CI/CD : Les PR sont souvent intégrées avec des outils d'Intégration Continue et de Livraison Continue (CI/CD). Lorsqu'une PR est soumise, des tests automatisés peuvent être déclenchés, et le résultat de ces tests est souvent signalé directement dans l'interface de la PR.
+
+Faire une Pull Request (PR)
+
+Fork du repository
+
+Avant de pouvoir soumettre une PR, vous devez avoir une copie du repository sur votre compte. Si ce n'est pas déjà fait :
+
+Rendez-vous sur la page Github du projet auquel vous voulez contribuer
+Cliquez sur le bouton "Fork" en haut à droite de la page. Cela créera une copie du projet sur votre compte Github personnel.
+Cloner le fork
+
+Après avoir fait un fork, vous allez pouvoir travailler dessus. Pour cela, vous allez devoir le cloner sur votre propre machine :
+
+git clone URL_DU_REPO_A_CLONE (attention, c'est VOTRE repo)
+git clone https://github.com/JackAdamsJenkins/Test-repos-Hugo.git
+Créer une nouvelle branche
+
+Il est conseillé de créer une nouvelle branche pour chaque nouvelle fonctionnalité ou correction. Cela vous permet de garder le travail organisé et séparé.
+
+Pour créer une nouvelle branche, vous devez utiliser la commande git checkout -b NomDeLaNouvelleBranche
+
+git checkout -b nom_de_la_branche
+git checkout -b interfaceGUI
+Apporter les modifications
+
+Modifier le/les fichiers nécessaires et ajoutez-les à l'index :
+
+git add nom_du_fichier
+Ou pour ajouter tous les fichiers modifiés :
+
+git add *
+Ensuite, faites un commit de vos modifications :
+
+git commit -m "Description des modifications"
+Pousser la branche vers le fork
+
+git push origin nom_de_la_branche
+Créer la Pull Request
+
+Aller sur la page Github de votre fork
+Cliquer sur le bouton "New pull request"
+Sélectionner votre nouvelle branche dans le menu déroulant "compare"
+Assurez-vous que la branche de base (main) est celle du projet original et non celle de votre fork
+Vérifier les modifications et cliquer sur "Create pull request"
+Donner un titre à votre PR et décrire les modifications ou les raisons de votre PR
+Cliquer sur "Create pull request" pour soumettre votre PR
